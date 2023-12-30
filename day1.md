@@ -1,5 +1,11 @@
 # DevOps and Kubernetes
 
+## Agenda
+- What is DevOps
+- Why DevOps (Exercise)
+- Getting Started (Tutorial)
+- Background (Context and Details - Basics)
+
 ## What is DevOps?
 
 Automating portions of **Development** and **Operations** to shorten Product Development Lifecycle.  
@@ -24,9 +30,9 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
    1. How can we restrict resources for the application?
   
 
-### Let's automate Development Setup
+## Getting Started - Build a Web Application and Deploy to Kubernetes
 
-#### File Contents
+### File Contents
 
 1. src/main.py
    ```
@@ -66,17 +72,39 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
    CMD [ "uvicorn" , "--host", "0.0.0.0", "main:app" ]
    ```
 
-#### Build my first image
+### Build my first image
 
 1. `docker build -t "my-first-image:0.1.0" .`
 
-#### Run a container of the image
+### Run a container of the image
 
 1. `docker run --rm -p 8000:8000 --name my-first-container my-first-image:0.1.0`
 
-#### Visit the web application in browser
+### Visit the web application in browser
 
 - localhost:8000
+
+### Launch your application in Kubernetes
+
+`kubectl create deployment my-first-deployment --image my-first-image:0.1.0 --replicas 3`
+
+### Create a service in Kubernetes 
+
+`kubectl expose deployment/my-first-deployment --port 8000 --type NodePort`
+- Find the exposed port value: `kubectl get services`
+- Visit `http://localhost:<exposed port>`
+
+## Background
+
+1. Terminologies on containerization
+   * Image: Snapshot of state of userspace of Linux system
+   * Containers: Running Instance of an image
+   * Registry: Store or Fetch Images
+3. Kubernetes
+   * Pods: Collection of containers that share a context
+   * Deployment: For declaratively managing updates to Pods
+   * Statefulset: For stateful applications which requires to ensure app identity
+   * Service: Expose an application running in the cluster to outside the cluster.
 
 
 

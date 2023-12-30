@@ -104,11 +104,12 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
    * Image: Snapshot of state of userspace of Linux system
    * Containers: Running Instance of an image
    * Registry: Store or Fetch Images
-3. Kubernetes
+1. Kubernetes
    * Pods: Collection of containers that share a context
    * Deployment: For declaratively managing updates to Pods
    * Statefulset: For stateful applications which requires to ensure app identity
    * Service: Expose an application running in the cluster to outside the cluster.
+
 
 
 

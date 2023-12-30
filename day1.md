@@ -31,18 +31,14 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
 1. src/main.py
    ```
    from typing import Union
-
+   import socket
    from fastapi import FastAPI
-  
+   
    app = FastAPI()
-  
+   
    @app.get("/")
    async def read_root():
-          return { "K1": "V1" }
-  
-   @app.get("/employees/{employee_id}")
-   async def read_employee(item_id: int, q: Union[str,None] = None):
-          return { "item_id": item_id, "q": q }
+   	return { "hostname": socket.gethostname() }
    ```
 
 1. requirements.txt
@@ -77,6 +73,10 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
 #### Run a container of the image
 
 1. `docker run --rm -p 8000:8000 --name my-first-container my-first-image:0.1.0`
+
+#### Visit the web application in browser
+
+- localhost:8000
 
 
 

@@ -32,6 +32,10 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
 
 ## Getting Started - Build a Web Application and Deploy to Kubernetes
 
+### Install Pre-requisites
+1. Install Docker
+2. Install Kubernetes
+
 ### File Contents
 
 1. src/main.py

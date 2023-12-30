@@ -29,26 +29,28 @@ Automating portions of **Development** and **Operations** to shorten Product Dev
 #### File Contents
 
 1. src/main.py
-  ```python3
-  from typing import Union
+   ```
+   from typing import Union
 
-  from fastapi import FastAPI
+   from fastapi import FastAPI
   
-  app = FastAPI()
+   app = FastAPI()
   
-  @app.get("/")
-  async def read_root():
+   @app.get("/")
+   async def read_root():
           return { "K1": "V1" }
   
-  @app.get("/employees/{employee_id}")
-  async def read_employee(item_id: int, q: Union[str,None] = None):
+   @app.get("/employees/{employee_id}")
+   async def read_employee(item_id: int, q: Union[str,None] = None):
           return { "item_id": item_id, "q": q }
-  ```
+   ```
+
 1. requirements.txt
    ```
    fastapi==0.108.0
    uvicorn[standard]==0.25.0
    ```
+
 1. Dockerfile
    ```
    FROM "ubuntu:20.04"
